@@ -6,14 +6,8 @@ Im using bloc for state management, getit for dependencies injection, hive for l
 
 ## 📱 Screenshots
 
-### Home Page
-
-![Home Page](screenshots/home.jpg)
-
-### Add Note Page
-
-![Add Note Page](screenshots/add_note.jpg)
-
-### Note Page
-
-![Note Page](screenshots/note_viewer.jpg)
+<p align="center">
+  <img src="screenshots/home.jpg" alt="Home" width="200"/>
+  <img src="screenshots/add_note.jpg" alt="Add Note" width="200"/>
+  <img src="screenshots/note_viewer.jpg" alt="Note Page" width="200"/>
+</p>
