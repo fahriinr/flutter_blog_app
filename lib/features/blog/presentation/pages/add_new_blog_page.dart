@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/common/widgets/loader.dart';
+import 'package:blog_app/core/constants/constants.dart';
 import 'package:blog_app/core/theme/app_pallete.dart';
 import 'package:blog_app/core/utils/pick_image.dart';
 import 'package:blog_app/core/utils/show_snackbar.dart';
@@ -150,42 +151,36 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children:
-                            [
-                                  'Technology',
-                                  'Business',
-                                  'Programming',
-                                  'Entertainment',
-                                ]
-                                .map(
-                                  (e) => GestureDetector(
-                                    onTap: () {
-                                      if (selectedTopics.contains(e)) {
-                                        selectedTopics.remove(e);
-                                      } else {
-                                        selectedTopics.add(e);
-                                      }
-                                      setState(() {});
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Chip(
-                                        color: selectedTopics.contains(e)
-                                            ? WidgetStatePropertyAll(
-                                                AppPallete.gradient1,
-                                              )
-                                            : null,
-                                        label: Text(e),
-                                        side: BorderSide(
-                                          color: selectedTopics.contains(e)
-                                              ? AppPallete.gradient1
-                                              : AppPallete.borderColor,
-                                        ),
-                                      ),
+                        children: Constants.topics
+                            .map(
+                              (e) => GestureDetector(
+                                onTap: () {
+                                  if (selectedTopics.contains(e)) {
+                                    selectedTopics.remove(e);
+                                  } else {
+                                    selectedTopics.add(e);
+                                  }
+                                  setState(() {});
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Chip(
+                                    color: selectedTopics.contains(e)
+                                        ? WidgetStatePropertyAll(
+                                            AppPallete.gradient1,
+                                          )
+                                        : null,
+                                    label: Text(e),
+                                    side: BorderSide(
+                                      color: selectedTopics.contains(e)
+                                          ? AppPallete.gradient1
+                                          : AppPallete.borderColor,
                                     ),
                                   ),
-                                )
-                                .toList(),
+                                ),
+                              ),
+                            )
+                            .toList(),
                       ),
                     ),
                     BlogEditor(controller: titleController, hintText: 'Title'),
